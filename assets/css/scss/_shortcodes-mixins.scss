@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Button mixins - start
+   ========================================================================== */
+
+@mixin qodefButtonDefaultStyle($important: null) {
+	@include qodefHeadingStyle();
+
+	position: relative $important;
+	display: inline-flex $important;
+	vertical-align: middle $important;
+	width: auto $important;
+	margin: 0 $important;
+	text-decoration: none $important;
+	text-transform: uppercase $important;
+	border-radius: 0 $important;
+	outline: none $important;
+	transition: $color-transition, $background-color-transition, $border-color-transition $important;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+@mixin qodefButtonSearchIconStyle($color: null, $hover-color: null, $position: null) {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	@if ($position == inside) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: 0;
+		padding: 0;
+		height: 100%;
+		width: 16px;
+	}
+
+	@if ($position == outside) {
+		height: initial;
+	}
+
+	@if ($color) {
+		color: $color;
+	}
+
+	&:hover {
+
+		@if ($hover-color) {
+			color: $hover-color;
+		}
+	}
+
+	svg {
+		display: block;
+		width: 15px;
+		height: auto;
+	}
+}
+
+@mixin qodefButtonSize($size: normal, $important: null) {
+	@if ($size == 'small') {
+		padding: 10px calc(28px - 0.2em) 10px 28px $important;
+	} @else if ($size == 'normal') {
+		padding: 12px calc(31px - 0.2em) 12px 31px $important;
+	} @else if ($size == 'large') {
+		padding: 14px calc(34px - 0.2em) 14px 34px $important;
+	} @else if ($size == 'full') {
+		width: 100% $important;
+		padding: 12px 0 $important;
+		justify-content: center $important;
+		text-align: center $important;
+	}
+
+	span {
+		display: block;
+		line-height: #{(25 / 13)}em;
+	}
+}
+
+@mixin qodefButtonFilledColor($important: null) {
+	color: $black $important;
+	background-color: var(--qode-main-color) $important;
+	border: 2px solid transparent $important;
+}
+
+@mixin qodefButtonFilledHoverColor($important: null) {
+	color: $black $important;
+	background-color: $moon-mist $important;
+}
+
+@mixin qodefButtonOutlinedColor($important: null) {
+	color: $heading-color $important;
+	background-color: transparent $important;
+	border: 2px solid var(--qode-main-color) $important;
+}
+
+@mixin qodefButtonOutlinedHoverColor($important: null) {
+	color: $heading-color $important;
+	background-color: $moon-mist $important;
+	border-color: $moon-mist $important;
+}
+
+@mixin qodefButtonTextual($important: null) {
+	@include qodefUnderline($vertical-position: 90%, $color: var(--qode-main-color), $letter-spacing: 0.2em, $height: 2px, $initial: visible);
+
+	background-color: transparent;
+	border: 0;
+	color: $heading-color;
+	padding: 0 !important;
+	display: inline; // animation fix
+
+	.qodef-m-text {
+		display: inline; // animation fix
+	}
+}
+
+@mixin qodefButtonTextualHover($important: null) {
+	@include qodefUnderlineHover($height: 2px, $initial: visible);
+}
+
+/* ==========================================================================
+   Button mixins - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Tabs mixins - start
+   ========================================================================== */
+
+@mixin qodefTabs() {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none; // woo
+
+	li {
+		margin: 0 88px 0 0;
+		padding: 0;
+
+		a {
+			@include qodefAdditionalText($line-height: 22px);
+			@include qodefUnderline($letter-spacing: 0.2em, $initial: hidden);
+
+			display: block;
+			padding: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		a:hover,
+		&.active a, // woo
+		&.ui-state-active a, // tabs sc
+		&.ui-state-hover a { // tabs sc
+			@include qodefUnderlineHover($letter-spacing: 0.2em, $initial: hidden);
+		}
+	}
+
+	@include qodefScreenSize680() {
+		flex-direction: column;
+		align-items: flex-start;
+
+		li {
+			margin: 0 0 26px 0;
+			padding: 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Tabs mixins - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Animation mixins - start
+   ========================================================================== */
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+/* ==========================================================================
+   Animation mixins - end
+   ========================================================================== */

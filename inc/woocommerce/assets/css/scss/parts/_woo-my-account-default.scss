@@ -1,0 +1,115 @@
+/* ==========================================================================
+   WooCommerce my account styles
+   ========================================================================== */
+
+.woocommerce-account {
+
+	.woocommerce-MyAccount-navigation {
+		display: inline-block;
+		float: left;
+		padding-right: 50px;
+		position: relative;
+		vertical-align: top;
+		width: 30%;
+
+		ul {
+			@include qodefWooTemplatesListStyles();
+
+			li {
+
+				a {
+					@include qodefWooLabelsHeadingStyle($heading_tag: null, $with-color: false);
+
+					color: $heading-color;
+
+					&:hover {
+						color: $gray;
+					}
+				}
+
+				&.is-active {
+
+					a {
+						color: $gray;
+					}
+				}
+			}
+		}
+	}
+
+	.woocommerce-MyAccount-content {
+		display: inline-block;
+		float: left;
+		position: relative;
+		vertical-align: top;
+		width: 70%;
+
+		.woocommerce-order-details {
+			margin: 30px 0 0;
+		}
+
+		.woocommerce-customer-details {
+			margin: 48px 0 0;
+		}
+
+		h2 {
+			@include qodefWooTemplatesHeadingStyle(0 0 20px);
+		}
+
+		.order-again {
+			margin: 30px 0 0;
+		}
+	}
+
+	.button {
+		@include qodefWooButtonsStyle();
+	}
+
+	.woocommerce-form-login {
+		max-width: 800px;
+
+		.woocommerce-form__label-for-checkbox {
+			align-items: center;
+			display: flex;
+			margin: 5px 0 21px 0;
+			font-size: 20px;
+
+			input {
+				flex-shrink: 0;
+				margin: 0 22px 0 0;
+			}
+		}
+
+		.woocommerce-LostPassword {
+			margin-top: 21px;
+			font-size: 20px;
+		}
+	}
+
+	.woocommerce-form-register {
+
+		.woocommerce-privacy-policy-text {
+			margin-bottom: 31px;
+		}
+	}
+
+	.woocommerce-EditAccountForm {
+
+		fieldset {
+			margin: 0;
+			padding: 0;
+
+			legend {
+				display: none;
+			}
+		}
+
+		.woocommerce-form-row {
+			margin: 0 0 #{map-get($input-fields-map, 'input-fields-margin-bottom')}px;
+
+			input[type="text"] {
+				margin: 0;
+			}
+		}
+	}
+}

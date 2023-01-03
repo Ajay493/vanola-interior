@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Filter responsive styles
+   ========================================================================== */
+
+.qodef-m-filter {
+
+	@include qodefScreenSize680() {
+
+		.qodef-m-filter-items {
+			flex-direction: column;
+		}
+
+		.qodef-m-filter-item {
+			margin: 5px 0;
+		}
+	}
+}

@@ -1,0 +1,85 @@
+/* ==========================================================================
+   WooCommerce quantity input styles
+   ========================================================================== */
+
+#qodef-woo-page,
+#yith-quick-view-modal {
+
+	&.qodef--single {
+
+		.qodef-quantity-buttons {
+
+			.qodef-quantity-label {
+				display: inline-block;
+			}
+		}
+	}
+
+	.qodef-quantity-buttons {
+		$height: 53px;
+
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+
+		> * {
+			height: $height;
+		}
+
+		.qodef-quantity-label {
+			@include qodefAdditionalText($font-size: 12px, $line-height: $height);
+
+			display: none;
+			margin-right: 15px;
+		}
+
+		.qodef-quantity-input {
+			@include qodefAdditionalText($font-size: 13px, $line-height: $height);
+
+			border: 0;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			width: 20px;
+
+			&[type=number]::-webkit-inner-spin-button,
+			&[type=number]::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+		}
+
+		.qodef-quantity-minus,
+		.qodef-quantity-plus {
+			position: relative;
+			width: 20px;
+
+			&:before,
+			&:after {
+				background-color: currentColor;
+				content: '';
+				height: 1px;
+				left: calc(50% - 4.5px);
+				position: absolute;
+				top: 50%;
+				width: 9px;
+			}
+		}
+
+		.qodef-quantity-plus {
+
+			&:after {
+				transform: rotate(90deg);
+			}
+		}
+
+		.qodef-quantity-minus {
+
+			&:before,
+			&:after {
+				left: calc(50% - 4px);
+				width: 8px;
+			}
+		}
+	}
+}

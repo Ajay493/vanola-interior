@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Blog styles
+   ========================================================================== */
+
+.qodef-blog {
+	
+	@include qodefScreenSize680 {
+		
+		.qodef-blog-item {
+
+			.qodef-e-left,
+			.qodef-e-right {
+				flex-basis: 100%;
+			}
+
+			.qodef-e-right {
+				text-align: left;
+				margin-top: 18px;
+			}
+			
+			&.format-link {
+				
+				.qodef-e-link-icon {
+					right: 12%;
+					width: 120px;
+				}
+			}
+			
+			.qodef-e-quote {
+				
+				&:before {
+					right: 19%;
+					font-size: 470px;
+				}
+			}
+		}
+	}
+}

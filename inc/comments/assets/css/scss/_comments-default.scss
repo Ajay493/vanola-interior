@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Comments styles
+   ========================================================================== */
+
+#qodef-page-comments {
+	@include qodefRelativeLayout();
+
+	margin-top: 82px;
+
+	.qodef-page-comments-not-found {
+		margin: 0;
+	}
+}
+
+#qodef-page-comments-list {
+	@include qodefRelativeLayout();
+
+	margin-bottom: 94px;
+
+	.qodef-m-title {
+		margin: 0 0 43px;
+	}
+
+	.qodef-m-comments {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		> .qodef-comment-item {
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.qodef-comment-item {
+		margin: 40px 0 0;
+		padding: 0;
+
+		.children {
+			list-style: none;
+			margin: 0;
+			padding: 0 0 0 103px;
+		}
+
+		.qodef-e-inner {
+			align-items: flex-start;
+			display: flex;
+		}
+
+		.qodef-e-image {
+			flex-shrink: 0;
+			margin: 0 36px 0 -6px;
+
+			img {
+				border-radius: 50%;
+				display: block;
+			}
+		}
+
+		.qodef-e-content {
+			@include qodefRelativeLayout();
+
+			margin-top: -5px;
+		}
+
+		.qodef-e-content-top {
+			align-items: baseline;
+			column-gap: 23px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.qodef-e-title-date {
+			align-items: baseline;
+			column-gap: 23px;
+			display: flex;
+		}
+
+		.qodef-e-title {
+			margin: 0;
+		}
+
+		.qodef-e-date {
+
+			a {
+				color: $gray;
+				font-family: $text-font;
+				font-size: 17px;
+
+				&:hover {
+					color: $heading-color;
+				}
+			}
+		}
+
+		.qodef-e-links {
+			column-gap: 23px;
+			display: flex;
+
+			> * {
+				@include qodefButtonDefaultStyle();
+				@include qodefButtonTextual();
+
+				&:hover {
+					@include qodefButtonTextualHover();
+				}
+			}
+		}
+
+		.qodef-e-text {
+			margin: 2px 0 0 0;
+
+			p {
+				margin: 0;
+			}
+
+			img {
+				margin-bottom: 5px;
+				margin-top: 5px;
+			}
+		}
+	}
+
+	.qodef-m-pagination {
+		margin-top: 50px;
+	}
+}
+
+#respond {
+	@include qodefRelativeLayout();
+
+	@at-root .qodef-comment-item & {
+		margin-top: 50px;
+
+		.comment-reply-title {
+			@include qodefHeadingStyle(h5); // match comment author heading
+		}
+	}
+
+	.comment-reply-title {
+		display: flex;
+		justify-content: space-between;
+		margin: 0;
+	}
+
+	.qodef-comment-form {
+
+		.comment-notes,
+		.logged-in-as {
+			font-size: 20px;
+			margin: 10px 0 28px 0;
+		}
+
+		.comment-form-comment,
+		.comment-form-author,
+		.comment-form-email,
+		.comment-form-url,
+		.form-submit {
+			margin: 0;
+		}
+
+		.comment-form-cookies-consent {
+			align-items: center;
+			display: flex;
+			font-size: 20px;
+			margin: 5px 0 21px 0;
+			position: relative;
+
+			> * {
+				margin: 0;
+			}
+
+			input[type="checkbox"] {
+				flex-shrink: 0;
+				margin: 0 22px 0 0;
+			}
+		}
+
+		.qodef-grid-item {
+			margin-bottom: 0 !important;
+		}
+	}
+}

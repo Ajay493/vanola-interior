@@ -1,0 +1,111 @@
+/* ==========================================================================
+   404 page styles
+   ========================================================================== */
+
+.error404 {
+
+	#qodef-page {
+
+		&-header {
+			background-color: transparent;
+			height: 140px !important;
+
+			.qodef-widget-holder {
+				display: none;
+			}
+		}
+
+		&-outer {
+			background-color: #7f766f;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			margin-top: -140px;
+		}
+
+		&-inner {
+			padding: 0;
+		}
+	}
+
+	.qodef-page-title {
+
+		@at-root body:not([class*="cuthbert-core"])#{&} {
+			display: none;
+		}
+	}
+
+	.qodef-header-navigation {
+
+		> ul {
+
+			> li {
+
+				> a {
+
+					@at-root body:not([class*="cuthbert-core"])#{&} {
+						color: var(--qode-header-light-color);
+
+						&:hover {
+							color: var(--qode-header-light-hover-color);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#qodef-404-page {
+	color: $white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 100vh;
+	text-align: center;
+
+	.qodef-404 {
+
+		&-tagline {
+			font-size: 50px;
+			font-style: italic;
+			margin: 0 0 23px 0;
+		}
+
+		&-title {
+			color: inherit;
+			margin: 0;
+		}
+
+		&-text {
+			color: inherit;
+			display: block;
+			margin: 16px auto 0;
+
+			@media only screen and (min-width: $screen-size-1025) {
+				max-width: 50%;
+			}
+		}
+
+		&-button {
+			display: inline-block;
+			margin-top: 52px;
+			position: relative;
+			vertical-align: top;
+
+			a {
+				@include qodefButtonOutlinedColor();
+
+				border-color: $white;
+				color: $white;
+
+				&:hover {
+					@include qodefButtonOutlinedHoverColor();
+
+					background-color: $white;
+					border-color: $white;
+				}
+			}
+		}
+	}
+}

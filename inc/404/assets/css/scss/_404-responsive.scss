@@ -1,0 +1,17 @@
+/* ==========================================================================
+   404 page responsive styles
+   ========================================================================== */
+
+@include qodefScreenSize1024() {
+
+	.error404 {
+
+		.qodef-mobile-header-opener {
+			color: var(--qode-header-light-color);
+		}
+	}
+
+	#qodef-404-page {
+		padding: 40px;
+	}
+}

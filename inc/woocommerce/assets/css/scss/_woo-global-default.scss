@@ -1,0 +1,132 @@
+/* ==========================================================================
+   WooCommerce global styles
+   ========================================================================== */
+@import 'woo-mixins';
+
+#qodef-woo-page,
+.qodef-woo-shortcode,
+#yith-quick-view-modal {
+
+	.qodef-woo-product-mark {
+		@include qodefAdditionalText($font-size: 13px, $line-height: 13px);
+
+		position: absolute;
+		right: 25px;
+		top: 18px;
+		z-index: 5;
+	}
+
+	.qodef-woo-product-title {
+		margin: 0;
+	}
+
+	.qodef-woo-ratings {
+		@include qodefRatingsStyle();
+	}
+
+	.price {
+		@include qodefWooPriceStyle();
+	}
+
+	.button:not(.qodef-layout--textual),
+	.added_to_cart:not(.qodef-layout--textual) {
+		@include qodefWooButtonsStyle();
+	}
+
+	@at-root body:not([class*="cuthbert-core"]) & {
+
+		.qodef-layout--textual {
+			@include qodefButtonDefaultStyle();
+			@include qodefButtonSize();
+			@include qodefUnderline($vertical-position: 90%, $color: var(--qode-main-color), $letter-spacing: 0.2em, $height: 2px, $initial: visible);
+
+			display: inline;
+			background-color: transparent;
+			border: 0;
+			color: $heading-color;
+			padding: 0 !important;
+
+			.qodef-m-text {
+				display: inline;
+			}
+
+			&:hover {
+				@include qodefUnderlineHover($height: 2px, $initial: visible);
+			}
+		}
+	}
+
+	.button,
+	.added_to_cart {
+
+		&.added {
+			display: none;
+		}
+	}
+}
+
+#qodef-woo-page {
+
+	.quantity {
+		white-space: nowrap;
+
+		input[type="number"] {
+			@include qodefWooLabelsHeadingStyle();
+
+			margin: 0;
+			padding: 12px 10px;
+			text-align: center;
+			width: 60px;
+		}
+	}
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	@include qodefWooNoticeStyle();
+}
+
+// This is temporary solution, we already asked support to add additional hooks inside this template in order to modify it and to move this css inside #qodef-woo-page
+.woocommerce-page {
+
+	div.woocommerce {
+
+		.shop_table {
+			@include qodefWooTableStyle();
+		}
+
+		.col2-set {
+			align-items: flex-start;
+			display: flex;
+			margin: 0 -#{$default-grid-gutter-size}px;
+			position: relative;
+
+			> * {
+				margin-bottom: #{2 * $default-grid-gutter-size}px;
+				padding: 0 #{$default-grid-gutter-size}px;
+				width: 100%;
+			}
+		}
+
+		address {
+			font-style: normal;
+
+			p {
+				margin: 0;
+			}
+		}
+
+		form {
+
+			p {
+				margin: 0;
+			}
+		}
+	}
+
+	.pswp__counter,
+	.pswp__caption__center {
+		color: #ffffff;
+	}
+}

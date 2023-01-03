@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Default widgets map
+   ========================================================================== */
+
+$wp-widgets-map: (
+	widget-margin: 66,
+	widget-title-margin: 14,
+	widget-title-adjusted-margin: get-text-space(), // ( widget list item line height - widget list item line height ) / 2
+	widget-title-color: null,
+	list-item-bottom-margin: 10,
+	list-item-hover-type: null,
+	text-color: $gray,
+	link-color: $gray,
+	link-hover-color: $heading-color,
+	list-link-color: $gray,
+	list-link-hover-color: $heading-color,
+	search-button-color: $heading-color, // button inside
+	search-button-hover-color: $text-color, // button inside
+	button-color: $heading-color,
+	button-hover-color: $heading-color,
+	button-background-color: transparent,
+	button-hover-background-color: $moon-mist,
+	button-border-color: var(--qode-main-color),
+	button-hover-border-color: $moon-mist,
+	thumbnail-width: 126,
+	thumbnail-height: 154,
+	thumbnail-right-margin: 25,
+	list-item-with-thumbnail-bottom-margin: 5,
+	calendar-border-color: $border-color,
+	calendar-today-color: $heading-color,
+	calendar-today-background-color: $border-color,
+	gallery-gutter: 5,
+);
+
+/* ==========================================================================
+   Override default widgets map for specific widget area
+   ========================================================================== */
+
+$wp-widgets-area-map: (
+	'': (),
+	'#qodef-page-footer':(
+		list-item-bottom-margin: 6,
+		list-item-hover-type: underline,
+	),
+	'#qodef-side-area':(
+		widget-margin: 25,
+		list-item-bottom-margin: 6,
+		list-item-hover-type: underline,
+	),
+	'#qodef-top-area' : (
+		widget-margin: 0,
+		widget-title-color: #ffffff,
+		text-color: #ffffff,
+		link-color: #ffffff,
+	),
+	'.qodef-mega-menu-widget-holder': (
+		widget-title-color: #ffffff,
+		text-color: #ffffff,
+		link-color: #ffffff,
+	),
+	'#qodef-page-header':(
+		link-color: $heading-color,
+	)
+);

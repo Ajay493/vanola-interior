@@ -1,0 +1,87 @@
+/* ==========================================================================
+   SVG styles
+   ========================================================================== */
+
+.qodef-svg--menu {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--search {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+}
+
+.qodef-svg--star {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--menu-arrow {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--slider-arrow-left,
+.qodef-svg--slider-arrow-right {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+}
+
+.qodef-svg--pagination-arrow-left,
+.qodef-svg--pagination-arrow-right {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+}
+
+.qodef-svg--close {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--close-small {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--close-medium {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--side-area {
+	fill: none;
+	stroke: currentColor;
+}
+
+.qodef-svg--spinner {
+	fill: var(--qode-main-color);
+	stroke: none;
+}
+
+.qodef-svg--link {
+	fill: none;
+	stroke: #484848;
+}
+
+.qodef-svg--drag-cursor {
+
+	circle {
+		fill: $heading-color;
+	}
+
+	text {
+		@include qodefHeadingStyle($heading: h6, $with-color: false);
+
+		fill: #ffffff;
+	}
+}
+
+.qodef-svg--cart {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+}

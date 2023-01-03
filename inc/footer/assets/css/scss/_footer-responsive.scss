@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Footer responsive styles
+   ========================================================================== */
+
+#qodef-page-footer-top-area {
+
+	@include qodefScreenSize1024() {
+
+		#qodef-page-footer-top-area-inner {
+			padding-top: 118px;
+		}
+
+		.qodef-content-full-width {
+			padding-left: $side-padding-responsive;
+			padding-right: $side-padding-responsive;
+		}
+	}
+
+
+}
+
+#qodef-page-footer-bottom-area {
+
+	@include qodefScreenSize1024() {
+
+		.qodef-content-full-width {
+			padding-left: $side-padding-responsive;
+			padding-right: $side-padding-responsive;
+		}
+
+		#qodef-page-footer-bottom-area-inner {
+
+			// 4 custom cols
+			&.qodef-layout--predefined {
+				$custom-width: 100%;
+
+				> .qodef-grid {
+
+					> .qodef-grid-inner {
+
+						> .qodef-grid-item {
+							text-align: center;
+
+							&:last-of-type {
+								width: $custom-width;
+							}
+
+							&:not(:last-of-type) {
+								width: $custom-width;
+							}
+						}
+					}
+				}
+			}
+
+			> .qodef-grid {
+
+				> .qodef-grid-inner {
+
+					> .qodef-grid-item {
+
+						&:not(:last-child) {
+							margin-bottom: 66px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

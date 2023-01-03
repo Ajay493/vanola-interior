@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Blog Single styles
+   ========================================================================== */
+
+.qodef-blog {
+
+	&.qodef--single {
+
+		.qodef-blog-item {
+			margin: 0 0 60px;
+
+			.qodef-e-bottom-holder {
+				margin-top: 60px;
+			}
+
+			&.format-link {
+
+				.qodef-e-link {
+					margin-bottom: 17px;
+				}
+			}
+
+			&.format-quote {
+
+				.qodef-e-quote {
+					margin-bottom: 17px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Blog styles
+   ========================================================================== */
+
+.qodef-blog {
+	@include qodefRelativeLayout();
+
+	.qodef-blog-item {
+		@include qodefRelativeLayout();
+
+		margin: 0 0 80px;
+
+		.qodef-e-inner,
+		.qodef-e-media,
+		.qodef-e-content {
+			@include qodefRelativeLayout();
+		}
+
+		.qodef-e-media {
+
+			> * {
+				margin-bottom: 21px;
+			}
+
+			iframe {
+				display: block;
+				height: 100%;
+			}
+		}
+
+		.qodef-e-media-image {
+			display: inline-block;
+			max-width: 100%;
+			position: relative;
+			vertical-align: top;
+
+			a,
+			img {
+				display: block;
+				width: 100%;
+			}
+
+			&.qodef--background {
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				width: 100%;
+
+				img {
+					visibility: hidden;
+				}
+			}
+		}
+
+		.qodef-e-title {
+			margin: 0;
+
+			a {
+
+				&:hover {
+					color: $heading-color;
+				}
+			}
+		}
+
+		.qodef-e-excerpt {
+			margin: 4px 0 0;
+		}
+
+		.qodef-e-top-holder {
+			margin-bottom: 2px;
+
+			.qodef-e-info {
+				line-height: 1em;
+			}
+		}
+
+		.qodef-e-text { // gutenberg
+
+			&:after {
+				clear: both;
+				content: '';
+				display: table;
+			}
+		}
+
+		.qodef-e-bottom-holder {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 38px;
+		}
+
+		.qodef-e-left,
+		.qodef-e-right {
+			flex-basis: 50%;
+
+			body:not([class*="cuthbert-core"]) & {
+				flex-basis: 100%;
+			}
+		}
+
+		.qodef-e-right {
+			justify-content: end;
+			text-align: right;
+		}
+
+		.qodef-e-post-link {
+			@include qodefAbsoluteLayout();
+		}
+
+		&.sticky {
+
+			.qodef-e-title a {
+				position: relative;
+				text-decoration: underline;
+
+				&:after {
+					content: '*';
+					font-size: 1.5em;
+					position: absolute;
+					right: -0.5em;
+					top: 0;
+				}
+			}
+		}
+
+		&.format-video {
+
+			// html element in elementor iframe
+			@at-root html.elementor-html & {
+
+				.wp-video {
+					max-width: 100%;
+				}
+
+				video {
+					height: auto;
+				}
+			}
+		}
+
+		&.format-audio {
+
+			// html element in elementor iframe
+			@at-root html.elementor-html & {
+
+				audio {
+					display: block;
+				}
+			}
+
+			.qodef-e-media-image {
+				width: 100%;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.qodef-e-media-audio {
+				bottom: 21px; // needs to be same as media margin bottom
+				left: 0;
+				margin: 0;
+				position: absolute;
+				width: 100%;
+			}
+		}
+
+		&.format-link {
+
+			.qodef-e-link {
+				@include qodefRelativeLayout();
+
+				background-color: $seashell;
+				padding: 15% 8% 20% 8%;
+				text-align: center;
+			}
+
+			.qodef-e-link-label {
+				margin: 0 0 8px;
+			}
+
+			.qodef-e-link-text {
+				@include qodefUnderline($vertical-position: 100%, $color: var(--qode-main-color), $letter-spacing: 0.2em, $height: 1px, $initial: visible);
+
+				display: inline;
+				margin: 0;
+				position: relative;
+			}
+
+			&:hover {
+
+				.qodef-e-link-text {
+					@include qodefUnderlineHover($height: 1px, $initial: visible);
+				}
+			}
+
+			.qodef-e-link-url {
+				@include qodefAbsoluteLayout();
+
+				z-index: 1;
+			}
+		}
+
+		&.format-quote {
+
+			.qodef-e-quote {
+				@include qodefRelativeLayout();
+
+				background-color: $seashell;
+				padding: 156px 8% 160px 8%;
+				text-align: center;
+			}
+
+			.qodef-e-quote-label {
+				margin: 0 0 8px;
+			}
+
+			.qodef-e-quote-text {
+				font-size: 40px;
+				margin: 0;
+				position: relative;
+			}
+
+			.qodef-e-quote-author {
+				display: block;
+				margin: 28px 0 0;
+				position: relative;
+			}
+
+			.qodef-e-quote-url {
+				@include qodefAbsoluteLayout();
+
+				z-index: 1;
+			}
+		}
+	}
+
+	&.qodef-items--fixed {
+
+		article {
+
+			.qodef-e-media,
+			.qodef-e-media-image {
+				height: 100%;
+			}
+		}
+	}
+}

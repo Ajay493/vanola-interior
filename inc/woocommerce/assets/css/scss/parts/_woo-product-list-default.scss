@@ -1,0 +1,127 @@
+/* ==========================================================================
+   WooCommerce product list styles
+   ========================================================================== */
+
+.qodef-woo-product-list {
+	@include qodefRelativeLayout();
+
+	ul.products {
+		align-items: flex-start;
+		clear: both;
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		margin: 0 -#{$default-grid-gutter-size}px;
+		padding: 0;
+		position: relative;
+
+		> .product {
+			margin: 0 0 #{2 * $default-grid-gutter-size}px;
+			padding: 0 #{$default-grid-gutter-size}px;
+		}
+
+		@for $i from 0 to $grid-columns-layout-size {
+			$column: $i + 1;
+
+			&.columns-#{$column} {
+
+				> .product {
+					width: 100%/$column;
+				}
+			}
+		}
+	}
+
+	@for $i from 0 to length($grid-columns-gutter-label) {
+		&.qodef-gutter--#{nth($grid-columns-gutter-label,$i+1)} {
+			$gutter-size: nth($grid-columns-gutter-size, $i+1);
+
+			ul.products {
+				margin: 0 -#{$gutter-size}px;
+
+				> .product {
+					padding: 0 #{$gutter-size}px;
+					margin: 0 0 #{2 * $gutter-size}px;
+				}
+			}
+		}
+	}
+
+	.qodef-e-inner {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		width: 100%; // ie fix
+
+		.touchevents & {
+			cursor: pointer;
+		}
+
+		&:hover {
+
+			.qodef-woo-product-image-inner {
+				opacity: 1;
+			}
+		}
+	}
+
+	.qodef-woo-product-image {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		> .woocommerce-LoopProduct-link {
+			@include qodefAbsoluteLayout();
+		}
+	}
+
+	.qodef-woo-product-image-inner {
+		@include qodefAbsoluteLayout();
+
+		align-items: center;
+		background-color: rgba($white, 0.8);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		opacity: 0;
+		padding: 20px;
+		text-align: center;
+		transition: $opacity-transition;
+
+		> * {
+			position: relative;
+			z-index: 3;
+		}
+	}
+
+	.qodef-woo-product-content {
+		@include qodefRelativeLayout();
+
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin: 20px 0 34px 0;
+	}
+
+	.qodef-woo-product-title {
+		transition: $color-transition;
+	}
+
+	.price {
+		margin-top: 3px !important;
+	}
+
+	select {
+		min-width: 50%;
+	}
+
+	.select2 {
+		margin: 0;
+	}
+}

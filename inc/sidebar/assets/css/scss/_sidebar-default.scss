@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Sidebar styles
+   ========================================================================== */
+
+#qodef-page-sidebar {
+	@include qodefRelativeLayout();
+
+	margin-bottom: 60px;
+
+	@include qodefScreenSize1024() {
+		margin-top: 120px;
+	}
+}

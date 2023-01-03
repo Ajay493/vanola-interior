@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Filter styles
+   ========================================================================== */
+
+.qodef-filter--on {
+
+	.qodef-grid-inner {
+		opacity: 1;
+		transition: opacity .5s ease;
+	}
+
+	&.qodef--filter-loading {
+
+		.qodef-grid-inner {
+			opacity: 0;
+			transition: opacity .2s ease;
+		}
+
+		.qodef-m-pagination-spinner {
+			bottom: calc(50% - 16px) !important; // important is set to prevent larger selectors
+		}
+	}
+}
+
+.qodef-m-filter {
+	@include qodefRelativeLayout();
+
+	margin: 0 0 40px;
+
+	.qodef-m-filter-items {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+
+	.qodef-m-filter-item {
+		@include qodefAdditionalText($line-height: 31px);
+		@include qodefUnderline($letter-spacing: 0.2em, $initial: hidden);
+
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+
+		&:hover,
+		&.qodef--active {
+			@include qodefUnderlineHover($letter-spacing: 0.2em, $initial: hidden);
+		}
+	}
+}

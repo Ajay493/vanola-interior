@@ -1,0 +1,177 @@
+/* ==========================================================================
+   9.0 Swiper carousel styles
+   ========================================================================== */
+
+.qodef-swiper-container { // this is the same css style as default swiper-container have
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	z-index: 1;
+	visibility: hidden;
+	overflow: hidden;
+
+	.swiper-slide {
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&.qodef-blog {
+
+		.qodef-blog-item {
+			margin-bottom: 0;
+		}
+	}
+
+	&.qodef-swiper--initialized {
+		visibility: visible;
+	}
+
+	&.qodef-swiper--show-hidden-slides {
+		overflow: visible;
+	}
+
+	&.qodef--no-bottom-space {
+		margin-bottom: 0 !important;
+	}
+}
+
+.swiper-pagination-bullets {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.swiper-container-horizontal > & {
+		position: relative !important;
+		margin-top: 30px;
+		bottom: 0 !important;
+		height: 30px;
+		width: 30px;
+	}
+
+	.swiper-container-vertical > & {
+		right: 0 !important;
+		height: auto;
+		width: 30px;
+		flex-direction: column;
+	}
+
+	.swiper-pagination-bullet {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 9px;
+		height: 9px;
+		margin: 10px !important;
+		padding: 0;
+		background-color: transparent;
+		border: 1px solid rgba($black, .6);
+		border-radius: 50%;
+		opacity: 1;
+		transition: all 0.35s ease;
+		position: relative;
+
+		&:hover {
+			background-color: $black;
+			border-color: $black;
+		}
+
+		&.swiper-pagination-bullet-active {
+			background-color: $black;
+			border-color: $black;
+		}
+	}
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	background-image: none !important;
+	width: auto !important;
+	height: auto !important;
+	margin: 0 !important;
+	color: $heading-color;
+	transition: all 0.35s ease;
+	transform: translateY(-50%);
+
+	.swiper-container-horizontal.qodef-swiper--show-pagination & {
+		transform: translateY(calc(-50% - 30px));
+	}
+
+	svg {
+		display: block;
+		width: 26px;
+	}
+
+	&:after {
+		display: none !important;
+	}
+
+	&:hover {
+		color: var(--qode-main-color);
+	}
+}
+
+.swiper-button-prev {
+	left: 30px !important;
+
+	&.swiper-button-outside {
+		left: -56px !important;
+
+		@include qodefScreenSize768 {
+			left: -40px !important;
+		}
+
+		@include qodefScreenSize680 {
+			left: -30px !important;
+		}
+	}
+
+	.swiper-container-vertical & {
+		left: 50% !important;
+		transform-origin: 0 0;
+		transform: rotate(90deg) translate(0, -50%);
+		top: 30px;
+	}
+}
+
+.swiper-button-next {
+	right: 30px !important;
+
+	&.swiper-button-outside {
+		right: -56px !important;
+
+		@include qodefScreenSize768 {
+			right: -40px !important;
+		}
+
+		@include qodefScreenSize680 {
+			right: -30px !important;
+		}
+	}
+
+	.swiper-container-vertical & {
+		right: 50% !important;
+		transform-origin: 0 50%;
+		transform: rotate(90deg) translate(0, -50%);
+		top: auto;
+		bottom: 30px;
+	}
+}
+
+.swiper-container-vertical + .swiper-button-prev {
+	left: 50% !important;
+	transform-origin: 0 0;
+	transform: rotate(90deg) translate(0, -50%);
+	top: -56px;
+}
+
+.swiper-container-vertical + .swiper-button-prev + .swiper-button-next {
+	right: 50% !important;
+	transform-origin: 0 50%;
+	transform: rotate(90deg) translate(0, -50%);
+	top: auto;
+	bottom: -56px;
+}

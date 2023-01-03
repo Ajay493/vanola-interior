@@ -1,0 +1,63 @@
+/* ==========================================================================
+   7.0 Content styles
+   ========================================================================== */
+
+#qodef-page-wrapper {
+	overflow: hidden; // hidden is important in order to prevent content dragging and double scroll bar when content is wider then screen
+	position: relative;
+}
+
+#qodef-page-outer {
+	position: relative;
+}
+
+#qodef-page-inner {
+	padding: $page-content-padding;
+	position: relative;
+}
+
+#qodef-page-content {
+
+	&.qodef-layout--template {
+
+		.qodef-page-content-section {
+
+			&.qodef-col--12 {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.qodef--boxed {
+	background-color: $additional-background-color;
+
+	#qodef-page-wrapper {
+		background-color: $background-color;
+		display: block;
+	}
+
+	#qodef-page-inner {
+		padding-left: $boxed-grid-padding-size;
+		padding-right: $boxed-grid-padding-size;
+		width: 100% !important; // important is set in order to override default content gid behavior
+	}
+}
+
+.qodef--passepartout {
+
+	#qodef-page-wrapper {
+		background-color: $background-color;
+	}
+}
+
+.qodef-parallax-item {
+	will-change: transform;
+}
+
+@include qodefScreenSize768() {
+
+	.qodef-disable-full-height--768 {
+		height: initial !important;
+	}
+}

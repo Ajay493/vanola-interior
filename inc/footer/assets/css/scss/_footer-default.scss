@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Footer styles
+   ========================================================================== */
+
+#qodef-page-footer {
+	@include qodefRelativeLayout();
+
+	> * {
+		@include qodefRelativeLayout();
+	}
+}
+
+#qodef-page-footer-top-area {
+	background-color: $additional-background-color;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.qodef-content-full-width {
+		padding-left: $side-padding-large;
+		padding-right: $side-padding-large;
+	}
+
+	.qodef--boxed & {
+		padding-left: $boxed-grid-padding-size;
+		padding-right: $boxed-grid-padding-size;
+	}
+
+	&-inner {
+		border-top: 0 solid $border-color;
+		padding-bottom: 38px;
+		padding-top: 98px;
+	}
+}
+
+#qodef-page-footer-bottom-area {
+	background-color: $additional-background-color;
+
+	.qodef-content-full-width {
+		padding-left: $side-padding-large;
+		padding-right: $side-padding-large;
+	}
+
+	.qodef--boxed & {
+		padding-left: $boxed-grid-padding-size;
+		padding-right: $boxed-grid-padding-size;
+	}
+
+	&-inner {
+		border-top: 0 solid $border-color;
+		padding-bottom: 126px;
+		padding-top: 38px;
+
+		// 4 custom cols
+		&.qodef-layout--predefined {
+			$custom-width: 40%;
+
+			> .qodef-grid {
+
+				> .qodef-grid-inner {
+
+					> .qodef-grid-item {
+
+						&:last-of-type {
+							text-align: center;
+							width: $custom-width;
+
+							img {
+								margin: 0 auto !important;
+							}
+						}
+
+						&:not(:last-of-type) {
+							width: calc((100% - #{$custom-width}) / 3);
+						}
+					}
+				}
+			}
+		}
+	}
+}

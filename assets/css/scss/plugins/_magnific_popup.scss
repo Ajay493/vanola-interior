@@ -1,0 +1,110 @@
+/* ==========================================================================
+   9.0 Magnific Popup styles
+   ========================================================================== */
+
+button {
+
+	&.mfp-arrow {
+		top: calc(50% - 25px) !important;
+		width: 26px !important;
+		height: 51px !important;
+		margin: 0 !important;
+		color: #ffffff;
+		transition: $color-transition;
+		opacity: 1 !important;
+
+		svg {
+			display: block;
+			width: 100%;
+			pointer-events: none;
+		}
+
+		&:before,
+		&:after {
+			display: none !important;
+		}
+
+		&:hover {
+			color: rgba(#ffffff, .4);
+		}
+
+
+		&.mfp-arrow-left {
+			left: 30px;
+		}
+
+		&.mfp-arrow-right {
+			right: 30px;
+
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&.mfp-close {
+		top: 6px !important;
+		right: -32px !important;
+		width: 32px !important;
+		height: auto !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		color: #ffffff;
+		transition: $color-transition;
+		opacity: 1 !important;
+
+		&:hover {
+			color: rgba(#ffffff, .4);
+		}
+
+		&:before,
+		&:after {
+			display: none !important;
+		}
+
+		svg {
+			display: block;
+			width: 100%;
+			height: auto;
+			pointer-events: none;
+		}
+	}
+}
+
+
+.mfp-figure {
+
+	&:after {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+}
+
+.mfp-bottom-bar {
+
+	.mfp-title,
+	.mfp-counter {
+		@include qodefHeadingStyle(h6);
+
+		color: #ffffff;
+	}
+}
+
+.mfp-fade.mfp-bg,
+.mfp-fade.mfp-wrap {
+	opacity: 0;
+	transition: opacity .35s ease-out;
+
+	&.mfp-ready {
+		opacity: 1;
+	}
+
+	&.mfp-removing {
+		opacity: 0;
+	}
+}
+
+.mfp-fade.mfp-bg {
+	background-color: rgba(0, 0, 0, .8);
+}
+

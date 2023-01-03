@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Mobile Header styles
+   ========================================================================== */
+$header-height: 70px;
+$menu-top-bottom-spacing: 34px;
+$menu-item-top-bottom-spacing: 6px;
+
+#qodef-page-mobile-header {
+	position: relative;
+	display: none;
+	height: $header-height;
+	z-index: 100; // to be on top of content, if content has negative margin
+
+	.qodef-mobile-header-logo-link {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: $header-height;
+		max-height: 100%;
+
+		img {
+			display: block;
+			margin: auto 0;
+			width: auto;
+			max-height: 100%;
+			transition: opacity 0.3s ease;
+		}
+
+		&.qodef-height--not-set {
+
+			img {
+				max-height: calc(50% * 100 / 70); // 100 is initial header height, 70 is initial mobile header height and 50 is for retina
+			}
+		}
+	}
+}
+
+#qodef-page-mobile-header-inner {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+	padding: $full-width-side-padding-responsive;
+
+	&.qodef-content-grid {
+		padding: 0;
+	}
+}
+
+.qodef-mobile-header-opener {
+	font-size: 20px;
+	margin-left: 20px;
+
+	svg {
+		display: block;
+	}
+}
+
+.qodef-mobile-header-navigation {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: none;
+	width: 100%;
+	max-height: calc(100vh - #{$header-height});
+	background-color: #ffffff;
+	border-bottom: 1px solid $border-color;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 10; // to allowed dropdown over content
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			margin: 0;
+
+			a {
+				position: relative;
+				display: block;
+			}
+
+			.qodef-menu-item-arrow {
+				@include qodefMobileMenuItemArrowStyle();
+
+				transform: rotate(0);
+				transition: transform $transition-timing, $color-transition;
+
+				&:hover {
+					@include qodefMobileMenuItemArrowHoverStyle();
+				}
+			}
+
+			ul {
+				display: none;
+
+				li {
+
+					> a {
+						@include qodefMenuLevelTwoInitialStyle();
+						@include qodefMenuLevelTwoInitialTypographyStyle();
+
+						&:hover {
+							@include qodefMenuLevelTwoHoverStyle();
+						}
+					}
+
+					&.current-menu-ancestor,
+					&.current-menu-item {
+
+						> a {
+							@include qodefMenuLevelTwoHoverStyle();
+						}
+					}
+				}
+			}
+
+			&.qodef--opened {
+
+				> .qodef-menu-item-arrow {
+					transform: rotate(90deg);
+				}
+			}
+		}
+	}
+
+	> ul {
+		margin: 0 auto;
+		padding: $menu-top-bottom-spacing 0;
+
+		> li {
+			padding: $menu-item-top-bottom-spacing 0;
+
+			> a {
+				@include qodefMenuLevelOneInitialStyle();
+
+				&:hover {
+					@include qodefMenuLevelOneHoverStyle();
+				}
+			}
+
+			&.current-menu-ancestor,
+			&.current-menu-item {
+
+				> a {
+					@include qodefMenuLevelOneHoverStyle();
+				}
+			}
+		}
+
+		&:not(.qodef-content-grid) {
+			padding-left: $side-padding-responsive;
+			padding-right: $side-padding-responsive;
+		}
+	}
+}
